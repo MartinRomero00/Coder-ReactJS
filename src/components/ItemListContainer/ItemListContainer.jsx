@@ -1,9 +1,13 @@
-import React from 'react'
-import "./itemListContainer.css"
+import Card from "../card"
 
-const ItemListContainer = ({text}) => {
+
+
+const ItemListContainer = ({productos}) => {
+  
   return (
-    <div className='center'>{text}</div>
+    <>
+      {productos.map(producto => (<Card key={producto.id} producto={producto}/>))}
+    </>
   )
 }
 
