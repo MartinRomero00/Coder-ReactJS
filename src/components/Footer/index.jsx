@@ -2,7 +2,7 @@
 
 const Footer = () => {
   return (
-    <footer className="mt-10 bg-neutral-900 text-center text-white">
+    <footer className="mt-6 bg-neutral-900 text-center text-white">
         <div className=" px-6 pt-6">
             <div className="grid grid-cols-3 place-items-center">
             <a
