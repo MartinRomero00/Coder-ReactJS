@@ -5,6 +5,7 @@ import Banner3 from "../../assets/Banner3.jpg"
 import Productsindex from '../Productsindex'
 import { useState } from 'react'
 import { AiOutlineArrowRight,AiOutlineArrowLeft } from "react-icons/ai"
+import Footer from '../Footer'
 
 
 const DisplayBanners = () => {
@@ -40,6 +41,7 @@ const DisplayBanners = () => {
       <button onClick={nextSlide}><AiOutlineArrowRight size={30}/></button>
       </div>
       <Productsindex/>
+      <Footer/>
     </div>
   )
 }
