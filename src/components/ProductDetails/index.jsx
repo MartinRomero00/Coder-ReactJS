@@ -35,20 +35,21 @@ const ProductDetails = () => {
 
   return (
     <>
-        <div className="grid grid-cols-2 grid-rows-1 mt-10 border-b-4 border-orange-300">
+        <div className="grid grid-cols-2 grid-rows-1 mt-5 border-4 border-orange-300">
             <div className="grid place-items-center ">
-                <img className="w-80 border-solid rounded-md border-2 border-stone-300" src={product.img} alt={product.Nombre} />
+                <img className="w-80 " src={product.img} alt={product.Nombre} />
             </div>
-            <div className="grid pt-10  pl-2 gap-4 border-l-4 border-orange-300">
+            <div className="grid place-items-center pt-10  pl-2 gap-4 border-l-4 border-orange-300">
                 <h1 className="font text-lg">Marca: {product.Marca}</h1>
                 <h3 className="font text-lg">Descripcion: {product.Descripcion}</h3>
                 <h3 className="text-lg font">Precio: $<span className="font2">{product.Precio}</span></h3>
                 <button  className="w-40 bg-orange-400 text-white text-base border-solid rounded-md border-2 border-stone-200">SUMAR AL CARRITO</button>
-                <img src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/785X40.jpg" 
+                <img className="pl-2 pr-2" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/785X40.jpg" 
                 title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago" />
             </div>
         </div>
-        <div className="flex justify-center mt-4">
+            <h2 className="text-center mt-2 font-bold underline">Publicidad</h2>
+        <div className="flex justify-center mt-2">
             <img className="h-full w-full ml-2 mr-2 mb-2" src={banner} />
         </div>
     </>

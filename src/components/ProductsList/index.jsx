@@ -4,7 +4,7 @@ import db from "../../../db/firebase-config.js"
 import { Roller } from 'react-awesome-spinners'
 import "./styles.css"
 import { Link } from "react-router-dom"
-import Footer from "../Footer/index.jsx"
+
 
 
 const ProductsList = () => {
@@ -56,7 +56,6 @@ const ProductsList = () => {
           ))}
         </div>
       </div>
-      <Footer/>
     </div>
   )
 }

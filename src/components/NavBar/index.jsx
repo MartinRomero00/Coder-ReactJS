@@ -1,7 +1,7 @@
 import "./styles.css"
 import Swal from "sweetalert2"
 import { Link } from "react-router-dom"
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+
 
 
 const Navbar = () => {
@@ -24,7 +24,9 @@ const Navbar = () => {
             <Link to="/productos">
             <li className="hover:text-white">PRODUCTOS</li>
             </Link>
+            <Link to="/preguntas-frecuentes">
             <li className="hover:text-white">AYUDA</li>
+            </Link>
             <li onClick={handleOnClick} className="hover:text-white">MARCAS SPONSOR</li>
         </ul>
     </nav>
