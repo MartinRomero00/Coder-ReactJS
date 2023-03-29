@@ -28,7 +28,7 @@
 .hover-underline-animation::after {
   content: '';
   position: absolute;
-  width: 47%;
+  width: 100%;
   transform: scaleX(0);
   height: 2px;
   bottom: 0;

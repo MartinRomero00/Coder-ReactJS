@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 
 
 
+
 const ProductsList = () => {
 
     const [products, setProducts] = useState([])
@@ -18,6 +19,7 @@ const ProductsList = () => {
         setProducts(itemCollection.docs.map((doc) => ({...doc.data(), id: doc.id})))
         setLoading(true)
     }
+
 
     useEffect(() => {
         getProducts()
@@ -34,20 +36,32 @@ const ProductsList = () => {
     <div>
       <div className="grid grid-cols-3">
         <div className="col-start-1 ">
-          <div className="grid grid-rows-7 pl-4 mt-36 ml-16 w-72 gap-9 border-2 border-orange-300 rounded-lg border-solid shadow-2xl shadow-orange-500/100 fixed bottom-20">
-            <h1 className="mt-2 quicksand underline decoration-solid">Categorías</h1>
-            <h3 className="open-sans hover-underline-animation">Placa Madre</h3>
-            <h3 className="open-sans hover-underline-animation">Almacenamiento</h3>
-            <h3 className="open-sans hover-underline-animation">Placa de video</h3>
-            <h3 className="open-sans hover-underline-animation">Memoria Ram</h3>
-            <h3 className="open-sans hover-underline-animation">Procesadores</h3>
-            <h3 className="mb-2 open-sans hover-underline-animation">Computadoras</h3>
-          </div>
+        <div className="grid grid-rows-7 pl-4 mt-36 ml-16 w-72 gap-9 border-2 border-orange-300 rounded-lg border-solid shadow-2xl shadow-orange-500/100 fixed bottom-20">
+                <h1 className="mt-2 quicksand underline decoration-solid">Categorías</h1>
+                <Link to="/categoria/Placa Madre">
+                <h3 className="open-sans hover-underline-animation">Placa Madre</h3>
+                </Link>
+                <Link to="/categoria/Almacenamiento">
+                <h3 className="open-sans hover-underline-animation">Almacenamiento</h3>
+                </Link>
+                <Link to="/categoria/Placa de Video">
+                <h3 className="open-sans hover-underline-animation">Placa de video</h3>
+                </Link>
+                <Link to="/categoria/Memoria Ram">
+                <h3 className="open-sans hover-underline-animation">Memoria Ram</h3>
+                </Link>
+                <Link to="/categoria/Procesador">
+                <h3 className="open-sans hover-underline-animation">Procesadores</h3>
+                </Link>
+                <Link to="/categoria/Computadora">
+                <h3 className="mb-2 open-sans hover-underline-animation">Computadoras</h3>
+                </Link>
+            </div>
         </div>
         <div className="col-start-2 col-span-2 grid grid-cols-2 grid-rows-1 ">
           {products.map((product) => (
-            <Link to={`${product.id}`}>
-              <div className="grid place-items-center mt-6  gap-4 ml-3 mr-4 rounded-xl shadow-lg bg-white border-solid border-orange-400 border shadow-red-500/80 h-80 " key={product.id}>
+            <Link to={`${product.id}`} key={product.id}>
+              <div className="grid place-items-center mt-6  gap-4 ml-3 mr-4 rounded-xl shadow-lg bg-white border-solid border-orange-400 border shadow-red-500/80 h-80 ">
                 <img className="w-40" src={product.img} alt={product.Nombre} />
                 <h2 className="text-center source-sans-pro text-lg">{product.Nombre} {product.Marca} {product.Descripcion}</h2>
                 <h3 className="text-center text-lg roboto-condensed">${product.Precio}</h3>

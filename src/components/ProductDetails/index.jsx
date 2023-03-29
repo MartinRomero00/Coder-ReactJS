@@ -1,6 +1,6 @@
 import { doc, getDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import {  useNavigate, useParams } from "react-router-dom"
 import db from "../../../db/firebase-config.js"
 import "./styles.css"
 
@@ -17,6 +17,7 @@ const ProductDetails = () => {
     }
 
     const banner = banners[product.Nombre] || banners.default
+    const navigate = useNavigate()
 
 
     const getProduct = async (id) => {
@@ -26,7 +27,7 @@ const ProductDetails = () => {
         if (docSnap.exists()) {
             setProduct(docSnap.data())
         } else {
-            console.log("No such document!");
+            navigate("/404")
         }
     }
     useEffect(() => {
@@ -40,7 +41,7 @@ const ProductDetails = () => {
                 <img className="w-80 " src={product.img} alt={product.Nombre} />
             </div>
             <div className="grid place-items-center pt-10  pl-2 gap-4 border-l-4 border-orange-300">
-                <h1 className="font text-lg">Marca: {product.Marca}</h1>
+                <h1 className="font text-lg">Marca: {product.Nombre}</h1>
                 <h3 className="font text-lg">Descripcion: {product.Descripcion}</h3>
                 <h3 className="text-lg font">Precio: $<span className="font2">{product.Precio}</span></h3>
                 <button  className="w-40 bg-orange-400 text-white text-base border-solid rounded-md border-2 border-stone-200">SUMAR AL CARRITO</button>
