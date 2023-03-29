@@ -15,6 +15,7 @@ const ProductDetails = () => {
         "Placa de Video": "https://i.postimg.cc/DzqXtVmp/vga-keyart-banner-1920-580-14.jpg",
         default: "https://www.nvidia.com/content/dam/en-zz/Solutions/events/ces-2022/strip-banner/geforce-ampere-rtx-laptops-learn-gf-strip-1024-t@2x-es-mx.jpg"
     }
+    const [cantidad, setCantidad] = useState(1)
 
     const banner = banners[product.Nombre] || banners.default
     const navigate = useNavigate()
@@ -34,6 +35,16 @@ const ProductDetails = () => {
         getProduct(id)
     }, [id]);
 
+    const restarProducto = () => {
+        if (cantidad > 1) {
+          setCantidad(cantidad - 1);
+        }
+      }
+
+    const sumarProducto = () => {
+        setCantidad(cantidad + 1);
+      }
+
   return (
     <>
         <div className="grid grid-cols-2 grid-rows-1 mt-5 border-4 border-orange-300">
@@ -44,6 +55,20 @@ const ProductDetails = () => {
                 <h1 className="font text-lg">Marca: {product.Nombre}</h1>
                 <h3 className="font text-lg">Descripcion: {product.Descripcion}</h3>
                 <h3 className="text-lg font">Precio: $<span className="font2">{product.Precio}</span></h3>
+                <div className="flex items-center">
+                    
+                    <button className="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-l" onClick={restarProducto}>
+                        -
+                    </button>
+                    
+                    <p className="bg-gray-100 text-gray-800 font-bold py-2 px-4">
+                        {cantidad}
+                    </p>
+                    
+                    <button className="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-r" onClick={sumarProducto}>
+                        +
+                    </button>
+                </div>
                 <button  className="w-40 bg-orange-400 text-white text-base border-solid rounded-md border-2 border-stone-200">SUMAR AL CARRITO</button>
                 <img className="pl-2 pr-2" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/785X40.jpg" 
                 title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago" />

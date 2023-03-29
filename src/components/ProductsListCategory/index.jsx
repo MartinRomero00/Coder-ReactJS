@@ -26,11 +26,14 @@ const ProductsListCategory = () => {
 
     return unsubscribe;
   }, [categoria]);
-  // {producto.data.Nombre}
+
+
+
+
   return (
     <div className="grid grid-cols-3">
       <div className="col-start-1 ">
-        <div className="grid grid-rows-7 pl-4 mt-36 ml-16 w-72 gap-9 border-2 border-orange-300 rounded-lg border-solid shadow-2xl shadow-orange-500/100 fixed bottom-20">
+        <div className="grid grid-rows-7 pl-4 mt-36 ml-16 w-72 gap-9 border-2 border-orange-300 rounded-lg border-solid shadow-2xl shadow-orange-500/100 ">
           <h1 className="mt-2 quicksand underline decoration-solid">
             Categorías
           </h1>

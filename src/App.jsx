@@ -15,11 +15,6 @@ import ProductsListCategory from "./components/ProductsListCategory"
 function App() {
 
 
-
-
-  
-
-  
   return (
     <>
       <Header/> 
@@ -27,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DisplayBanners/>}/>
         <Route path="/:id" element={<ProductDetails/>}/>
+        <Route path="categoria/:categoria/:id" element={<ProductDetails/>}/>
         <Route path="/productos/" element={<ProductsList/>}/>
         <Route path="/productos/:id" element={<ProductDetails/>}/>
         <Route path="/categoria/:categoria" element={<ProductsListCategory/>}/> 
