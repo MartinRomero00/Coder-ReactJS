@@ -1,4 +1,4 @@
-import { doc, getDoc } from "firebase/firestore"
+import { addDoc, collection, doc, getDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import {  useNavigate, useParams } from "react-router-dom"
 import db from "../../../db/firebase-config.js"
@@ -44,7 +44,17 @@ const ProductDetails = () => {
     const sumarProducto = () => {
         setCantidad(cantidad + 1);
       }
+    
+    const handleAddToCart = async () => {
+        await addDoc(collection(db, 'carrito'), {
+        Nombre: product.Nombre,
+        Precio: product.Precio,
+        Stock: cantidad,
+        img: product.img
+        });
+    };
 
+    
   return (
     <>
         <div className="grid grid-cols-2 grid-rows-1 mt-5 border-4 border-orange-300">
@@ -52,7 +62,7 @@ const ProductDetails = () => {
                 <img className="w-80 " src={product.img} alt={product.Nombre} />
             </div>
             <div className="grid place-items-center pt-10  pl-2 gap-4 border-l-4 border-orange-300">
-                <h1 className="font text-lg">Marca: {product.Nombre}</h1>
+                <h1 className="font text-lg">{product.Nombre} {product.Marca}</h1>
                 <h3 className="font text-lg">Descripcion: {product.Descripcion}</h3>
                 <h3 className="text-lg font">Precio: $<span className="font2">{product.Precio}</span></h3>
                 <div className="flex items-center">
@@ -69,7 +79,7 @@ const ProductDetails = () => {
                         +
                     </button>
                 </div>
-                <button  className="w-40 bg-orange-400 text-white text-base border-solid rounded-md border-2 border-stone-200">SUMAR AL CARRITO</button>
+                <button onClick={handleAddToCart} className="w-40 bg-orange-400 text-white text-base border-solid rounded-md border-2 border-stone-200">SUMAR AL CARRITO</button>
                 <img className="pl-2 pr-2" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/785X40.jpg" 
                 title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago" />
             </div>

@@ -67,7 +67,7 @@ const ProductsListCategory = () => {
       </div>
         <div className="col-start-2 col-span-3 grid grid-cols-2 grid-rows-1">
         {productos.map((producto) => (
-          <Link to={`${producto.id}`} key={producto.data.id}>
+          <Link to={`${producto.id}`} key={producto.id}>
             <div className="grid place-items-center mt-6  gap-4 ml-3 mr-4 rounded-xl shadow-lg bg-white border-solid border-orange-400 border shadow-red-500/80 h-80 ">
               <img className="w-40" src={producto.data.img} alt={producto.data.Nombre} />
               <h2 className="text-center source-sans-pro text-lg">{producto.data.Nombre} {producto.data.Marca} {producto.data.Descripcion}</h2>

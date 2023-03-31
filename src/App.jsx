@@ -8,15 +8,23 @@ import PreguntasFrec from "./components/PreguntasFrec"
 import ProductDetails from "./components/ProductDetails"
 import ProductsList from "./components/ProductsList"
 import ProductsListCategory from "./components/ProductsListCategory"
+import { CartProvider } from "./components/CartContext"
+
+
+
+
 
 
 
 
 function App() {
+  
+  
 
 
   return (
     <>
+      <CartProvider>
       <Header/> 
       <Navbar/> 
       <Routes>
@@ -30,6 +38,7 @@ function App() {
         <Route path="/404" element={<ErrorNotFund/>}/>
       </Routes>
       <Footer/>
+      </CartProvider>
     </>
 
   )

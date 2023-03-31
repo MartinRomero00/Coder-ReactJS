@@ -1,7 +1,7 @@
 import "./styles.css"
 import Swal from "sweetalert2"
 import { Link } from "react-router-dom"
-import DisplayCarrito from "../DisplayCarrito"
+
 
 
 
@@ -29,7 +29,6 @@ const Navbar = () => {
             <li className="hover:text-white">AYUDA</li>
             </Link>
             <li onClick={handleOnClick} className="hover:text-white">MARCAS SPONSOR</li>
-            <li><DisplayCarrito/></li>
         </ul>
     </nav>
   )
