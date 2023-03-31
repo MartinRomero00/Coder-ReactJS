@@ -19,7 +19,7 @@ const Header = () => {
     }
   };
 
-  const { products } = useContext(CartContext) 
+  const { products, cartCount } = useContext(CartContext) 
 
 
 
@@ -32,7 +32,7 @@ const Header = () => {
         <li className="mt-6 col-start-3">
         
         <div onClick={toggleCarrito}>
-        <div className=''><AiOutlineShoppingCart size={50}/><span className='relative left-8 bottom-14 text-xl border-solid border-2 border-orange-500 rounded-full font-mono bg-orange-500 text-white pl-2 pr-2 pb-1 pt-1'><span>0</span></span></div>
+        <div className=''><AiOutlineShoppingCart size={50}/><span className='relative left-8 bottom-14 text-xl border-solid border-2 border-orange-500 rounded-full font-mono bg-orange-500 text-white pl-2 pr-2 pb-1 pt-1'><span>{cartCount}</span></span></div>
       </div>
       {estaAbierto && (
         <div id="carrito-overlay" className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50" onClick={handleClickFuera}>
