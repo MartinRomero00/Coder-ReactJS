@@ -1,8 +1,10 @@
-import { addDoc, collection, doc, getDoc } from "firebase/firestore"
+import { doc, getDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import {  useNavigate, useParams } from "react-router-dom"
 import db from "../../../db/firebase-config.js"
 import "./styles.css"
+import { useContext } from "react"
+import { CartContext } from "../CartContext/index.jsx"
 
 
 const ProductDetails = () => {
@@ -45,14 +47,12 @@ const ProductDetails = () => {
         setCantidad(cantidad + 1);
       }
     
-    const handleAddToCart = async () => {
-        await addDoc(collection(db, 'carrito'), {
-        Nombre: product.Nombre,
-        Precio: product.Precio,
-        Stock: cantidad,
-        img: product.img
-        });
-    };
+    const {addItem} = useContext(CartContext)
+    const handleAddItem = () => {
+        addItem(product, cantidad)
+    }
+
+    
 
     
   return (
@@ -79,7 +79,7 @@ const ProductDetails = () => {
                         +
                     </button>
                 </div>
-                <button onClick={handleAddToCart} className="w-40 bg-orange-400 text-white text-base border-solid rounded-md border-2 border-stone-200">SUMAR AL CARRITO</button>
+                <button onClick={handleAddItem} className="w-40 bg-orange-400 text-white text-base border-solid rounded-md border-2 border-stone-200">SUMAR AL CARRITO</button>
                 <img className="pl-2 pr-2" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/785X40.jpg" 
                 title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago" />
             </div>
